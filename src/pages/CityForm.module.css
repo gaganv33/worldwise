@@ -1,0 +1,39 @@
+.main{
+   color: white;
+   display: block;
+   width: 87%;
+   padding: 1rem;
+   border-radius: 0.5rem;
+   background-color: rgb(88, 88, 88);
+   text-align: justify;
+}
+
+.label{
+   text-transform: uppercase;
+   color: rgb(170, 170, 170);
+   letter-spacing: 0.05rem;
+}
+
+.div{
+   margin-top: 0.3rem;
+}
+
+.backButton{
+   margin-top: 1.5rem;
+   width: 6rem;
+   padding: 0.5rem;
+   border: none;
+   background-color: rgb(0, 255, 0);
+   border-radius: 0.2rem;
+   color: white;
+   font-weight: 600;
+   color: black;
+}
+
+.spanFlag{
+   margin-right: 0.5rem;
+}
+
+.moreInformation{
+   color: darkgoldenrod;
+}

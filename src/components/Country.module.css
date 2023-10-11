@@ -1,0 +1,9 @@
+.container{
+    background-color: rgb(82, 82, 82);
+    border-left: 0.5rem solid rgb(228, 191, 2);
+    border-radius: 1rem;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 0.5rem;
+}

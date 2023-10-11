@@ -1,0 +1,19 @@
+.appNav{
+    color: white;
+    background-color: rgb(68, 68, 68);
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+}
+
+.link{
+    text-decoration: none;
+    padding: 0.2rem;
+    color: white;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+:global(.active){
+    background-color: rgb(94, 93, 93);
+    border-radius: 0.3rem;
+}

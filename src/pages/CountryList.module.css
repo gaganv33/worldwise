@@ -1,0 +1,13 @@
+.container{
+    color: white;
+    padding: 0.1rem;
+    width: 80%;
+}
+
+.data{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    column-gap: 0.5rem;
+}
+

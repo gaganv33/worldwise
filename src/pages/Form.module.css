@@ -1,0 +1,52 @@
+.form{
+   width: 90%;
+   background-color: rgb(108, 108, 108);
+   border-radius: 0.2rem;
+   padding: 1rem;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   color: white;
+   font-size: large;
+   gap: 1.5rem;
+}
+
+.single{
+   display: flex;
+   flex-direction: column;
+   width: inherit;
+   align-items: start;
+   gap: 0.5rem;
+}
+
+.input{
+   background-color: lightgray;
+   border: none;
+   border-radius: 0.1rem;
+   padding: 0.5rem;
+   width: 96.5%;
+}
+
+.buttonContainer{
+   width: inherit;
+   display: flex;
+   justify-content: space-between;
+   font-weight: 500;
+}
+
+.addButton{
+   background-color: rgb(127, 212, 0);
+   border: none;
+   border-radius: 0.3rem;
+   width: 4rem;
+   padding: 0.5rem;
+}
+
+.backButton{
+   background-color: black;
+   color: white;
+   border: none;
+   border-radius: 0.3rem;
+   width: 4rem;
+   padding: 0.5rem;
+}
