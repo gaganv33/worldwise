@@ -1,12 +1,10 @@
 import { createContext, useContext, useReducer } from "react";
-import data from "../cities.json"
-
-const Data = data.cities;
-console.log(Data);
+import data from "../cities.json";
 
 let intialState = {
    data: data.cities ? data.cities : [],
    currentCity: null,
+   location: {latitude: 0, longitude: 0},
 }
 
 function reducer(state, action){
@@ -16,9 +14,11 @@ function reducer(state, action){
       case "setSelectedCity":
          return {...state, currentCity: action.payload};
       case "addCity":
-         return {...state, data: [...state.data, action.payload]};
+         return {...state, data: [...state.data, action.payload], currentCity: action.payload.id};
       case "deleteCity":
          return {...state, data: state.data.filter((single)=>single.id !== action.payload)};
+      case "setLocation":
+         return {...state, location: action.payload};
    }
 }
 const CitiesProvider = createContext();

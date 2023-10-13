@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import Loading from "../components/Loading";
 import ErrorComponent from "../components/ErrorComponent";
 import { ContextProvider } from "../context/CitiesContext";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 export default function Form(){
    const [searchParams] = useSearchParams();
@@ -20,7 +22,7 @@ export default function Form(){
       country: "",
       date: "",
       emoji: "",
-      id: Math.random(),
+      id: Math.round(Math.random() * 10000),
       notes: "",
       position: {lat: 0, lng: 0}
    });
@@ -28,6 +30,9 @@ export default function Form(){
    const navigate = useNavigate();
 
    useEffect(function() {
+      if(!lat && !lng){
+         return;
+      }
       async function fetchData(){
          try{
             setError(null);
@@ -36,25 +41,13 @@ export default function Form(){
             const data = await locationData.json();
             const countryCode = data.countryCode;
             const cityName = data.city;
-   
-            const today = new Date();
-            let dd = today.getDate();
-            let mm = today.getMonth() + 1;
-            const yy = today.getFullYear();
-
-            if(dd < 10){
-               dd = '0' + dd;
-            }
-            if(mm < 10){
-               mm = '0' + mm;
-            }
 
             setFormData((values) => {
                return {
                   ...values,
-                  cityName: cityName,
+                  cityName: cityName || data.locality,
                   country: data.countryName,
-                  date: `${dd}/${mm}/${yy}`,
+                  date: new Date(),
                   emoji: countryCode,
                   position: {
                      lat: data.latitude,
@@ -80,6 +73,10 @@ export default function Form(){
       }
    }, [lat, lng]);
 
+   if(!lat && !lng){
+      return (<ErrorComponent error="Start by clicking somewhere on the map" />)
+   }
+
 
    return (
       <div className={styles.form}>
@@ -100,7 +97,10 @@ export default function Form(){
 
                   <div className={styles.single}>
                      <label>When did you go to?</label>
-                     <input type="text" className={styles.input} value={formData.date} readOnly disabled />
+                     <DatePicker type="text" className={`${styles.input} ${styles.date}`} 
+                     selected={formData.date} onChange={(date) => setFormData((values) => {
+                        return {...values, date: date};
+                     })} />
                   </div>
 
                   <div className={styles.single}>

@@ -17,7 +17,6 @@ export default function CityForm(){
          return single;
       }
    })
-   console.log(singleCity);
    singleCity = singleCity[0];
 
    const formatDate = (date) =>

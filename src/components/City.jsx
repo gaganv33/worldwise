@@ -19,14 +19,10 @@ export default function City(props){
     const date = formatDate(singleCity.date);
 
     function handleOnClick(id){
-        console.log("click event");
-        console.log(id);
         dispatch({ type: "setSelectedCity", payload: id });
     }
 
     function handleDeleteButton(id){
-        console.log("delete Button");
-        console.log(id);
         dispatch({ type: "deleteCity", payload: id});   
     }
 
